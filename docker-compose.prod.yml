@@ -3,7 +3,7 @@ version: '3.7'
 services:
 
   sample-prod:
-    container_name: sample-prod
+    container_name: ratheeshkm/docker-react-app-new
     build:
       context: .
       dockerfile: Dockerfile.prod
