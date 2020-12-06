@@ -1,0 +1,21 @@
+sudo: required
+language: generic
+services:
+  - docker
+
+before_install:
+  - docker build -f Dockerfile.prod -t ratheeshkm/docker-react-app-new . 
+
+script:
+  - docker run -it --rm -p 80:80 ratheeshkm/docker-react-app-new
+
+deploy:
+  provider: elasticbeanstalk
+  region: us-east-2
+  app: docker-react-app
+  env: DockerReactApp-env
+  bucket_name: 	elasticbeanstalk-us-east-2-393635133277
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
