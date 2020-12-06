@@ -6,8 +6,6 @@ services:
 before_install:
   - docker build -f Dockerfile.prod -t ratheeshkm/docker-react-app-new . 
 
-script:
-  - docker run -it --rm -p 80:80 ratheeshkm/docker-react-app-new
 
 deploy:
   provider: elasticbeanstalk
